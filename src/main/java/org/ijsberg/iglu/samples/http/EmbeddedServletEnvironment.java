@@ -20,40 +20,46 @@
 
 package org.ijsberg.iglu.samples.http;
 
-import org.ijsberg.iglu.Cluster;
-import org.ijsberg.iglu.Component;
-import org.ijsberg.iglu.configuration.StandardCluster;
-import org.ijsberg.iglu.configuration.StandardComponent;
-import org.ijsberg.iglu.runtime.Startable;
-import org.ijsberg.iglu.runtime.module.ModuleStarter;
-import org.ijsberg.iglu.runtime.module.ServerEnvironment;
-
+import java.io.IOException;
 import java.util.Properties;
+
+import org.ijsberg.iglu.exception.ResourceException;
+import org.ijsberg.iglu.server.http.module.SimpleJettyServletContext;
+import org.ijsberg.iglu.util.io.FileSupport;
 
 /**
  */
 public class EmbeddedServletEnvironment {
 
-	private static Startable env;
-
 	private static Properties getWebServerProps() {
 		Properties retval = new Properties();
-		retval.setProperty("servlet.snoop.class", "org.ijsberg.iglu.server.http.servlet.SnoopServlet");
-		retval.setProperty("servlet.snoop.url_pattern", "/snoop");
+		try {
+			retval.load(FileSupport.getInputStreamFromClassLoader("servlet_context.properties"));
+		} catch (IOException ioe) {
+			throw new ResourceException("can not load servlet context properties", ioe);
+		}
 		return retval;
+	}
+	
+	public void start() {
+		SimpleJettyServletContext servletContext = new SimpleJettyServletContext();
+		servletContext.setProperties(getWebServerProps());
+		servletContext.start();
 	}
 
 	public static void main(String[] args) throws Exception {
 
+		new EmbeddedServletEnvironment().start();
+		
+/*		
 		Cluster cluster = new StandardCluster();
-
+		
 		ServerEnvironment env = new ServerEnvironment();
+		
 		Component envModule = new StandardComponent(env);
 		cluster.connect("environment", envModule);
 
-		//System.out.println(CollectionSupport.format(env.getClass().getInterfaces(), ","));
-
-		ModuleStarter moduleStarter = new ModuleStarter();
+		ComponentStarter moduleStarter = new ComponentStarter();
 		Component starterModule = new StandardComponent(moduleStarter);
 		cluster.connect("starter", starterModule);
 
@@ -65,6 +71,8 @@ public class EmbeddedServletEnvironment {
 
 
 //		env.stop();
+
+ */
 	}
 
 }
