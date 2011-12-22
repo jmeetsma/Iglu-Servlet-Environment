@@ -1,8 +1,8 @@
-Iglu Servlet Environment is a command line telnet server written in Java.
-It provides a convenient way to create a backdoor in any Java server
-environment, such as JEE-solutions.
+Iglu Servlet Environment provides a complete Java Servlet and JSP environment,
+using the Jetty wrapper from Iglu Http.
 
-This project contains sample implementations, using a Jetty wrapper from Iglu Http.
+You may use it as the starting point for development and deployment of lightweight Java enterprise
+applications in a Unix-like environment.
 
 The Iglu Project explores simple and robust solutions for enterprise applications.
 Iglu is developed and maintained by Jeroen Meetsma, partner at IJsberg.
