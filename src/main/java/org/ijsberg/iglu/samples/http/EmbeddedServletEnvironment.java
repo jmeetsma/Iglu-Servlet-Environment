@@ -50,29 +50,6 @@ public class EmbeddedServletEnvironment {
 	public static void main(String[] args) throws Exception {
 
 		new EmbeddedServletEnvironment().start();
-		
-/*		
-		Cluster cluster = new StandardCluster();
-		
-		ServerEnvironment env = new ServerEnvironment();
-		
-		Component envModule = new StandardComponent(env);
-		cluster.connect("environment", envModule);
-
-		ComponentStarter moduleStarter = new ComponentStarter();
-		Component starterModule = new StandardComponent(moduleStarter);
-		cluster.connect("starter", starterModule);
-
-		Component webServerModule = new StandardComponent(new org.ijsberg.iglu.server.http.module.SimpleJettyServletContext());
-		webServerModule.setProperties(getWebServerProps());
-		cluster.connect("webserver", webServerModule);
-
-		env.start();
-
-
-//		env.stop();
-
- */
 	}
 
 }
