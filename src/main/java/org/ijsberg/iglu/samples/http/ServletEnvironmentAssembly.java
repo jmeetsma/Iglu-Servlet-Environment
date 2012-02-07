@@ -38,6 +38,7 @@ public class ServletEnvironmentAssembly implements Assembly {
 		jettyComponent.setProperties(getWebServerProps());
 		
 		core.connect("JettyServletContext", jettyComponent);
+		clusters.put("core", core);
 	}
 
 	@Override
