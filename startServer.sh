@@ -14,6 +14,6 @@ CLASSPATH=$CLASSPATH:lib/iglu-util-0.9.1.jar
 CURRENT_PATH=$PWD
 
 cd $SERVER_ROOT
-$JAVA_HOME/bin/java -classpath $CLASSPATH -Xms64m -Xmx256m org.ijsberg.iglu.configuration.module.ServerEnvironment org.ijsberg.iglu.samples.http.ServletEnvironmentAssembly -xcl lib
+$JAVA_HOME/bin/java -classpath $CLASSPATH -Xms64m -Xmx256m org.ijsberg.iglu.configuration.module.ServerEnvironment org.ijsberg.iglu.samples.http.IJsbergWebsiteAssembly -xcl lib
 cd $CURRENT_PATH
 

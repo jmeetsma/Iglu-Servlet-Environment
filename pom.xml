@@ -22,10 +22,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.ijsberg</groupId>
-  <artifactId>iglu-servlet-environment</artifactId>
+  <artifactId>ijsberg-website</artifactId>
   <packaging>jar</packaging>
   <version>1.0</version>
-  <name>Iglu-Servlet-Environment</name>
+  <name>IJsberg-Website</name>
   <url>http://iglu.ijsberg.org</url>
 
     <dependencies>
@@ -69,12 +69,12 @@
         <dependency>
             <groupId>org.ijsberg</groupId>
             <artifactId>iglu</artifactId>
-            <version>1.0.3</version>
+            <version>1.0.4</version>
         </dependency>
         <dependency>
             <groupId>org.ijsberg</groupId>
             <artifactId>iglu-common</artifactId>
-            <version>0.9.2</version>
+            <version>0.9.4-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.ijsberg</groupId>
@@ -84,8 +84,14 @@
         <dependency>
             <groupId>org.ijsberg</groupId>
             <artifactId>iglu-util</artifactId>
-            <version>0.9.1</version>
+            <version>0.9.2</version>
         </dependency>
+        <dependency>
+      		<groupId>mysql</groupId>
+      		<artifactId>mysql-connector-java</artifactId>
+            <version>5.0.5</version>
+    	</dependency>
+        
     </dependencies>
 
   <build>
